@@ -1,0 +1,29 @@
+{
+  "name": "@5app/health-check-helpers",
+  "version": "0.1.0",
+  "description": "System health check helpers",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5app/health-check-helpers.git"
+  },
+  "keywords": [
+    "health",
+    "helpers",
+    "check"
+  ],
+  "author": "5app",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/5app/health-check-helpers/issues"
+  },
+  "homepage": "https://github.com/5app/health-check-helpers#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-5app": "^0.3.0"
+  }
+}

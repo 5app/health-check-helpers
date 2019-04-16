@@ -1,0 +1,10 @@
+{
+	"root": true,
+	"extends": "5app",
+	"rules": {
+		"dot-location": [2, "property"],
+		"no-path-concat": 2,
+		"no-throw-literal": 0,
+		"radix": [2, "as-needed"]
+	}
+}
