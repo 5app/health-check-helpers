@@ -1,6 +1,6 @@
 {
   "name": "@5app/health-check-helpers",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "System health check helpers",
   "main": "index.js",
   "scripts": {
