@@ -6,15 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "semantic-release": "semantic-release",
-    "lint-fix": "eslint --fix ./",
-    "lint-diff": "LIST=`git diff-index --name-only HEAD | grep '.*\\.js$';`; if [ \"$LIST\" ]; then eslint $LIST; fi",
-    "precommit-msg": "echo 'Running pre-commit checks... (skip using --no-verify)' && exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "pre-commit": [
-    "precommit-msg",
-    "lint-diff"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/health-check-helpers.git"
@@ -31,14 +24,17 @@
   },
   "homepage": "https://github.com/5app/health-check-helpers#readme",
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.4",
-    "@semantic-release/git": "^7.0.16",
-    "eslint": "^6.3.0",
-    "eslint-config-5app": "^0.6.8",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@semantic-release/changelog": "^3.0.6",
+    "@semantic-release/git": "^7.0.18",
+    "eslint": "^6.7.2",
+    "eslint-config-5app": "^0.8.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
-    "pre-commit": "^1.2.2",
-    "semantic-release": "^15.13.24"
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "semantic-release": "^15.13.31"
   },
   "release": {
     "branch": "master",
@@ -61,5 +57,29 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "never",
+        [
+          "start-case",
+          "pascal-case"
+        ]
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
   }
 }
