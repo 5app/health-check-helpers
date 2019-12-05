@@ -36,6 +36,30 @@
     "lint-staged": "^9.5.0",
     "semantic-release": "^15.13.31"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "never",
+        [
+          "start-case",
+          "pascal-case"
+        ]
+      ]
+    }
+  },
   "release": {
     "branch": "master",
     "prepare": [
@@ -57,29 +81,5 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  },
-  "lint-staged": {
-    "*.js": "eslint"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "subject-case": [
-        2,
-        "never",
-        [
-          "start-case",
-          "pascal-case"
-        ]
-      ]
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E  HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   }
 }
