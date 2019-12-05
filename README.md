@@ -84,3 +84,51 @@ Example:
    }
 }
 ```
+
+### healthCheckServer
+
+Creates a basic http server to handle application health checking requirements.
+This server needs to be started in the main thread of your application (e.g. your server) and by default it will allow checking if the process is responsive or not.
+You can add the list of your app dependencies to this server to allow checking if these dependencies are healthy or not.
+
+Example:
+
+```javascript
+const {healthCheckServer, bullStats} = require('@5app/health-check-helpers');
+
+healthCheckServer({
+  port: 8888, // this is optional and it will default to the value of the environement variable `HEALTHCHECK_PORT` if specified, otherwise it falls back to the port `9999` 
+  dependencies: [
+    {
+      name: 'bull', // dependency name
+      check: () => bullStats(myQueueObject),
+    },
+  ],
+});
+```
+
+The check functions can be sync or async. They will be called by the server without parameters every time the server gets a request.
+
+Note: currently the server provides 1 endpoint (`/`) for general health status and doesn't provide special `readiness`, `liveness`, and debug endpoints.
+
+## Other tools
+
+### bin/check.js
+
+A simple script for making health check queries is available in the root of the repository.
+You can use it from your Dockerfile to ping the instance of `healthCheckServer` using the following command:
+
+```
+HEALTHCHECK --retries=2 --interval=10s --timeout=5s --start-period=5s CMD node node_modules/@5app/health-check-helpers/bin/check.js
+```
+
+This can replace checks that you would traditionally make with `curl`.
+
+You can configure the script using the following environment variables:
+
+| Setting         | Environement variable | Default value                                           |
+|-----------------|-----------------------|---------------------------------------------------------|
+| server port     | HEALTHCHECK_PORT      | 9999, the same as the default port of healthCheckServer |
+| server host     | HEALTHCHECK_HOST      | localhost                                               |
+| request timeout | HEALTHCHECK_TIMEOUT   | 50000 milliseconds                                      |
+
