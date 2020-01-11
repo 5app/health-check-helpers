@@ -131,4 +131,5 @@ You can configure the script using the following environment variables:
 | server port     | HEALTHCHECK_PORT      | 9999, the same as the default port of healthCheckServer |
 | server host     | HEALTHCHECK_HOST      | localhost                                               |
 | request timeout | HEALTHCHECK_TIMEOUT   | 50000 milliseconds                                      |
+| request path    | HEALTHCHECK_PATH      | /                                                       |
 

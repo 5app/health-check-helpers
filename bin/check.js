@@ -6,11 +6,13 @@ const {
 	HEALTHCHECK_PORT = 9999,
 	HEALTHCHECK_HOST = 'localhost',
 	HEALTHCHECK_TIMEOUT = 5000, // In milliseconds
+	HEALTHCHECK_PATH = '/',
 } = process.env;
 
 const options = {
 	host: HEALTHCHECK_HOST,
 	port: HEALTHCHECK_PORT,
+	path: HEALTHCHECK_PATH,
 	timeout: HEALTHCHECK_TIMEOUT,
 };
 
