@@ -24,17 +24,17 @@
   "homepage": "https://github.com/5app/health-check-helpers#readme",
   "devDependencies": {
     "@5app/semantic-release-config": "^1.0.3",
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
-    "@semantic-release/changelog": "^6.0.0",
-    "@semantic-release/git": "^10.0.0",
-    "eslint": "^8.0.0",
-    "eslint-config-5app": "^0.16.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-security": "^1.4.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.0",
-    "semantic-release": "^19.0.0"
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "eslint": "^8.23.0",
+    "eslint-config-5app": "^0.16.4",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-security": "^1.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "semantic-release": "^19.0.5"
   },
   "husky": {
     "hooks": {
