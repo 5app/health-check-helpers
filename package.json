@@ -7,6 +7,11 @@
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/health-check-helpers.git"
