@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/5app/health-check-helpers#readme",
   "devDependencies": {
+    "@5app/semantic-release-config": "^1.0.3",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
     "@semantic-release/changelog": "^6.0.0",
@@ -61,25 +62,6 @@
     }
   },
   "release": {
-    "branch": "master",
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json",
-          "package-lock.json",
-          "CHANGELOG.md"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
+    "extends": "@5app/semantic-release-config"
   }
 }
