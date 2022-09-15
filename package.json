@@ -5,9 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "semantic-release": "semantic-release",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint"
   },
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/health-check-helpers.git"
@@ -24,17 +28,18 @@
   },
   "homepage": "https://github.com/5app/health-check-helpers#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
-    "@semantic-release/changelog": "^6.0.0",
-    "@semantic-release/git": "^10.0.0",
-    "eslint": "^8.0.0",
-    "eslint-config-5app": "^0.16.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-security": "^1.4.0",
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.0",
-    "semantic-release": "^19.0.0"
+    "@5app/semantic-release-config": "^1.0.3",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "eslint": "^8.23.0",
+    "eslint-config-5app": "^0.16.4",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-security": "^1.5.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "semantic-release": "^19.0.5"
   },
   "husky": {
     "hooks": {
@@ -61,25 +66,6 @@
     }
   },
   "release": {
-    "branch": "master",
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json",
-          "package-lock.json",
-          "CHANGELOG.md"
-        ],
-        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
+    "extends": "@5app/semantic-release-config"
   }
 }
