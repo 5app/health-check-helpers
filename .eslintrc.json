@@ -1,10 +1,7 @@
 {
 	"root": true,
-	"extends": "5app",
-	"plugins": [
-		"promise",
-		"security"
-	],
+	"extends": ["5app", "prettier"],
+	"plugins": ["promise", "security"],
 	"rules": {
 		"promise/prefer-await-to-then": 2,
 		"security/detect-unsafe-regex": 2

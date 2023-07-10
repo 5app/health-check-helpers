@@ -1,11 +1,4 @@
-const kueStats = require('./lib/kueStats');
-const bullStats = require('./lib/bullStats');
-const processMetadata = require('./lib/processMetadata');
-const healthCheckServer = require('./lib/healthCheckServer');
-
-module.exports = {
-	kueStats,
-	bullStats,
-	processMetadata,
-	healthCheckServer
-};
+export {default as kueStats} from './lib/kueStats';
+export {default as bullStats} from './lib/bullStats';
+export {default as processMetadata} from './lib/processMetadata';
+export {default as healthCheckServer} from './lib/healthCheckServer';

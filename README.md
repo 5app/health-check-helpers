@@ -3,35 +3,36 @@
 > A set of functions to help determine if a service is healthy or not
 
 ## Usage
+
 ```sh
 npm install --save @5app/health-check-helpers
 ```
 
 Then, in your application, you can import and use any number of helpers:
+
 ```javascript
 const {kueStats} = require('@5app/health-check-helpers');
 const queueInstance = require('./queueInstance'); // your Kue instance
 
 async function serviceHealth() {
-  try {
-    const {completeCount, failedCount} = await kueStats(queueInstance);
+	try {
+		const {completeCount, failedCount} = await kueStats(queueInstance);
 
-    return {
-      healthy: true,
-      kue: {
-        completeCount,
-        failedCount,
-      },
-    };
-  }
-  catch (error) {
-    return {
-      healthy: false,
-      kue: {
-        error: error.message,
-      },
-    };
-  }
+		return {
+			healthy: true,
+			kue: {
+				completeCount,
+				failedCount,
+			},
+		};
+	} catch (error) {
+		return {
+			healthy: false,
+			kue: {
+				error: error.message,
+			},
+		};
+	}
 }
 ```
 
@@ -97,13 +98,13 @@ Example:
 const {healthCheckServer, bullStats} = require('@5app/health-check-helpers');
 
 healthCheckServer({
-  port: 8888, // this is optional and it will default to the value of the environement variable `HEALTHCHECK_PORT` if specified, otherwise it falls back to the port `9999` 
-  dependencies: [
-    {
-      name: 'bull', // dependency name
-      check: () => bullStats(myQueueObject),
-    },
-  ],
+	port: 8888, // this is optional and it will default to the value of the environement variable `HEALTHCHECK_PORT` if specified, otherwise it falls back to the port `9999`
+	dependencies: [
+		{
+			name: 'bull', // dependency name
+			check: () => bullStats(myQueueObject),
+		},
+	],
 });
 ```
 
@@ -127,9 +128,8 @@ This can replace checks that you would traditionally make with `curl`.
 You can configure the script using the following environment variables:
 
 | Setting         | Environement variable | Default value                                           |
-|-----------------|-----------------------|---------------------------------------------------------|
+| --------------- | --------------------- | ------------------------------------------------------- |
 | server port     | HEALTHCHECK_PORT      | 9999, the same as the default port of healthCheckServer |
 | server host     | HEALTHCHECK_HOST      | localhost                                               |
 | request timeout | HEALTHCHECK_TIMEOUT   | 50000 milliseconds                                      |
 | request path    | HEALTHCHECK_PATH      | /                                                       |
-

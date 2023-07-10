@@ -1,6 +1,6 @@
 // Inspired by https://blog.sixeyed.com/docker-healthchecks-why-not-to-use-curl-or-iwr/
 
-const http = require('http');
+import http from 'node:http';
 
 const {
 	HEALTHCHECK_PORT = 9999,
