@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "description": "System health check helpers",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "eslint .",
     "test": "npm run lint"
