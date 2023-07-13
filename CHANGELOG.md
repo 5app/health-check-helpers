@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/5app/health-check-helpers/compare/v1.4.0...v1.4.1) (2023-07-13)
+
+
+### Bug Fixes
+
+* **esm:** broken paths, noissue ([304af12](https://github.com/5app/health-check-helpers/commit/304af123f4e1906c9d1765cc121f055988bf488b))
+
 # [1.4.0](https://github.com/5app/health-check-helpers/compare/v1.3.0...v1.4.0) (2023-07-10)
 
 
